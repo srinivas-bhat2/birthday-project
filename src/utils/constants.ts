@@ -1,7 +1,7 @@
-export const BIRTHDAY_DATE = new Date('2024-04-15T00:00:00');
+export const BIRTHDAY_DATE = new Date('2024-12-17T00:00:00');
 
 export const PHOTOS = [
-  "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&q=80"
+  "https://i.postimg.cc/7Lpcyyg3/shared-image.jpg",
+  "https://i.postimg.cc/k5q47kqb/shared-image-2.jpg",
+  "https://i.postimg.cc/0yXFcSjH/shared-image-1.jpg"
 ];

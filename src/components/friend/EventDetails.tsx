@@ -18,7 +18,7 @@ export default function EventDetails() {
           <Calendar className="w-6 h-6 text-red-500 mt-1 flex-shrink-0" />
           <div>
             <h3 className="font-semibold text-lg">Date</h3>
-            <p className="text-gray-700">Monday, April 15th, 2024</p>
+            <p className="text-gray-700">Tuesday, December 17th, 2024</p>
           </div>
         </div>
 
@@ -26,8 +26,8 @@ export default function EventDetails() {
           <Clock className="w-6 h-6 text-red-500 mt-1 flex-shrink-0" />
           <div>
             <h3 className="font-semibold text-lg">Time</h3>
-            <p className="text-gray-700">6:00 PM onwards</p>
-            <p className="text-sm text-gray-600">Dinner & Celebrations</p>
+            <p className="text-gray-700">5:00 PM onwards</p>
+            <p className="text-sm text-gray-600">Celebrations</p>
           </div>
         </div>
 
@@ -35,8 +35,8 @@ export default function EventDetails() {
           <MapPin className="w-6 h-6 text-red-500 mt-1 flex-shrink-0" />
           <div>
             <h3 className="font-semibold text-lg">Venue</h3>
-            <p className="text-gray-700">Crystal Garden Restaurant</p>
-            <p className="text-sm text-gray-600">42 Paradise Avenue, Garden City</p>
+            <p className="text-gray-700">Mattu beach</p>
+            <p className="text-sm text-gray-600">Mattu beach road, Katpadi</p>
           </div>
         </div>
 
@@ -45,9 +45,7 @@ export default function EventDetails() {
           <div>
             <h3 className="font-semibold text-lg">What to Expect</h3>
             <ul className="text-sm text-gray-600 list-disc list-inside">
-              <li>Welcome Drinks</li>
-              <li>Dinner Buffet</li>
-              <li>Music & Dancing</li>
+              <li>Icecream</li>
               <li>Birthday Cake Ceremony</li>
             </ul>
           </div>

@@ -14,7 +14,7 @@ export default function PhotoGallery() {
           <img
             src={photo}
             alt={`Memory ${index + 1}`}
-            className="w-full h-64 object-cover"
+            className="w-full h-100  object-cover"
           />
         </motion.div>
       ))}
