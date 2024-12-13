@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Video } from 'lucide-react';
-import { db } from '../../lib/firebase';
-import { collection, addDoc } from 'firebase/firestore';
+import {baseApi} from "../../utils/baseApi"
 import { Button } from '../ui/Button';
 import { Input } from '../ui/Input';
 import { Textarea } from '../ui/Textarea';
+import { useDropzone } from 'react-dropzone'; // Import the dropzone hook
 
 export default function VideoUpload() {
   const [name, setName] = useState('');
@@ -13,39 +13,67 @@ export default function VideoUpload() {
   const [vimeoUrl, setVimeoUrl] = useState('');
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState('');
+  const [videoFile, setVideoFile] = useState<File | null>(null); // For storing the dropped video file
+  const [videoError, setVideoError] = useState(''); // For any video file errors
 
-  const extractVimeoId = (url: string) => {
-    const regExp = /(?:vimeo\.com\/|player\.vimeo\.com\/video\/)(\d+)/;
-    const match = url.match(regExp);
-    return match ? match[1] : null;
+  const onDrop = (acceptedFiles: File[]) => {
+    if (acceptedFiles && acceptedFiles[0]) {
+      const file = acceptedFiles[0];
+      if (file.type.startsWith('video/')) {
+        setVideoFile(file);
+        setVideoError('');
+      } else {
+        setVideoError('Please upload a valid video file.');
+      }
+    }
   };
+
+  const { getRootProps, getInputProps } = useDropzone({
+    onDrop,
+    accept: 'video/*', // Only accept video files
+    maxSize: 10 * 1024 * 1024, // Max size 500MB
+  });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
-    
-    const vimeoId = extractVimeoId(vimeoUrl);
-    if (!vimeoId) {
-      setError('Please enter a valid Vimeo video URL');
+    setSubmitting(true);
+
+    // Make sure video is dropped
+    if (!videoFile) {
+      setError('Please provide either a Vimeo URL or upload a video.');
+      setSubmitting(false);
       return;
     }
 
-    setSubmitting(true);
     try {
-      await addDoc(collection(db, 'wishes'), {
-        name,
-        message,
-        vimeoId,
-        timestamp: Date.now(),
-      });
-      
+    
+
+     
+
+      // Optionally, upload the file to a server (this is a placeholder API call)
+      if (videoFile) {
+        // Implement file upload to your API, e.g., using FormData
+        const formData = new FormData();
+        formData.append('name', name);
+        formData.append("description",message)
+        formData.append("video",videoFile)
+
+        // Replace with your API endpoint for video file upload
+        const res=await fetch(`${baseApi}upload`, {
+          method: 'POST',
+          body: formData,
+        });
+        console.log(res)
+      }
+   
+      // Reset form after successful submission
       setName('');
       setMessage('');
       setVimeoUrl('');
-      alert('Your wish has been added successfully!');
-    } catch (error) {
-      console.error('Error adding wish:', error);
-      setError('Failed to add your wish. Please try again.');
+      setVideoFile(null);
+    } catch (err) {
+      setError('Something went wrong. Please try again.');
     } finally {
       setSubmitting(false);
     }
@@ -74,15 +102,31 @@ export default function VideoUpload() {
           />
 
           <Input
-            label="Vimeo Video URL"
+            label=" Video URL"
             type="url"
             value={vimeoUrl}
             onChange={(e) => setVimeoUrl(e.target.value)}
             placeholder="Paste your Vimeo video URL"
             disabled={submitting}
-            required
+            required={videoFile == null} // Only require if no file is uploaded
             error={error}
           />
+
+          {/* Drag and drop area */}
+          <div
+            {...getRootProps()}
+            className="border-2 border-dashed p-6 text-center cursor-pointer"
+          >
+            <input {...getInputProps()} />
+            {videoFile ? (
+              <div>
+                <p>Video File: {videoFile.name}</p>
+              </div>
+            ) : (
+              <p>Drag & drop a video file here, or click to select one</p>
+            )}
+            {videoError && <p className="text-red-500">{videoError}</p>}
+          </div>
 
           <Textarea
             label="Message (Optional)"
