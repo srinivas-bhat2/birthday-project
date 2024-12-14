@@ -102,11 +102,11 @@ export default function VideoUpload() {
           />
 
           <Input
-            label=" Video URL"
+            label=" Video /image URL"
             type="url"
             value={vimeoUrl}
             onChange={(e) => setVimeoUrl(e.target.value)}
-            placeholder="Paste your Vimeo video URL"
+            placeholder="Paste your Vimeo video / Image  URL"
             disabled={submitting}
             required={videoFile == null} // Only require if no file is uploaded
             error={error}
@@ -146,7 +146,7 @@ export default function VideoUpload() {
           <ol className="list-decimal list-inside space-y-2 text-sm text-gray-600">
             <li>Record your birthday wish video</li>
             <li>Create a free Vimeo account at vimeo.com</li>
-            <li>Upload your video to Vimeo (up to 500MB per week)</li>
+            <li>Upload your video/image by compressing it less than 8mb . (<a href="https://www.youcompress.com/" target="_blank" className='text-blue-700 underline'>link</a>)</li>
             <li>Set the video privacy to "Anyone with the link"</li>
             <li>Copy the video URL and paste it above</li>
             <li>Fill in your name and optional message</li>
