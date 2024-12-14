@@ -1,0 +1,1 @@
+export const baseApi="https://cloudinary-server.vercel.app/api/v1/"
