@@ -35,7 +35,7 @@ export default function EventDetails() {
           <MapPin className="w-6 h-6 text-red-500 mt-1 flex-shrink-0" />
           <div>
             <h3 className="font-semibold text-lg">Venue</h3>
-            <p className="text-gray-700">Matyu Beach</p>
+            <p className="text-gray-700">Mattu Beach</p>
             <p className="text-sm text-gray-600">Mattu beach road, katpadi</p>
           </div>
         </div>
