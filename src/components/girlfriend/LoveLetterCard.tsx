@@ -17,25 +17,21 @@ export default function LoveLetterCard() {
         <p>My dearest Pollamma,</p>
         
         <p>
-          As I write this letter, my heart overflows with love and gratitude for having you in my life.
-          Today is not just another day—it's a celebration of the most beautiful soul I've ever known.
+        Happy Birthday to the most incredible woman I have ever known. Today, the world celebrates you, but my heart celebrates you every single day.
         </p>
         
         <p>
-          Your smile brightens my darkest days, your love gives me strength, and your presence makes
-          my world complete. Every moment with you feels like a precious gift, and I cherish each
-          one deeply.
+        You are the laughter i need in my lows, the calm in my chaos, and the spark that lights up my entire being. Since you walked into my life, everything has been brighter, warmer, and filled with a love I never thought I deserved. You’ve turned ordinary moments into extraordinary memories, and for that, I am endlessly grateful.
         </p>
         
         <p>
-          On your special day, I want you to know that you mean everything to me. Your kindness,
-          your grace, your infectious laughter—every little thing about you makes me fall in love
-          with you more each day.
+        On this special day, I want you to know how much you mean to me. Every laugh, every glance, every shared moment has been a gift that I treasure deeply.
         </p>
         
         <p>
-          May this year bring you all the joy, success, and happiness you deserve. I promise to
-          stand by your side, hold your hand, and love you more with each passing day.
+        May your day be as beautiful as your smile, as magical as your laughter, and as precious as your love. I can’t wait to celebrate you and make you feel as special as you truly are.
+
+Thank you for being you—my partner, my love, my pollamma. I am so lucky to call you mine.
         </p>
         
         <p className="text-right">
