@@ -37,24 +37,30 @@ export default function LoginPage() {
         </h2>
 
         <form onSubmit={handleSubmit} className="space-y-6">
-          <div>
+          <div >
             <label className="block text-sm font-medium text-gray-700">Username</label>
+            <div className='h-8 border-gray-300 '>
             <input
               type="text"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring focus:ring-red-200"
+              className="mt-1 p-2  block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 "
             />
+
+            </div>
+          
           </div>
 
           <div>
             <label className="block text-sm font-medium text-gray-700">Password</label>
+            <div className='h-8 border-gray-300 '>
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring focus:ring-red-200"
+              className="mt-1 p-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring focus:ring-red-200"
             />
+            </div>
           </div>
 
           {error && (
