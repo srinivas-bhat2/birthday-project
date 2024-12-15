@@ -1,0 +1,20 @@
+.falling-words-container {
+    position: absolute;
+    top: 0;
+    left: 65%;  /* Position words in the center horizontally */
+    transform: translateX(-50%);  /* Ensure the words are centered */
+    right: 0;
+    height: 100vh; /* Full viewport height */
+    pointer-events: none; /* Make sure the falling words don't interfere with other elements */
+  }
+  
+  .falling-word {
+    position: absolute;
+    font-size: 14px;
+    color: #ff6f61; /* Light red color for the words */
+    font-weight: bold;
+    text-align: center;
+    white-space: nowrap;
+    opacity: 0.8;
+  }
+  

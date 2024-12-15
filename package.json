@@ -14,7 +14,7 @@
     "@ffmpeg/ffmpeg": "^0.12.10",
     "clsx": "^2.1.0",
     "firebase": "^10.8.0",
-    "framer-motion": "^11.0.8",
+    "framer-motion": "^11.14.4",
     "install": "^0.13.0",
     "lucide-react": "^0.344.0",
     "npm": "^10.9.2",
