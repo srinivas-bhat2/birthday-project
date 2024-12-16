@@ -145,7 +145,6 @@ export default function VideoUpload() {
           <h3 className="font-semibold mb-2">How to share your video:</h3>
           <ol className="list-decimal list-inside space-y-2 text-sm text-gray-600">
             <li>Record your birthday wish video</li>
-            <li>Create a free Vimeo account at vimeo.com</li>
             <li>Upload your video/image by compressing it less than 8mb . (<a href="https://www.youcompress.com/" target="_blank" className='text-blue-700 underline'>link</a>)</li>
             <li>Set the video privacy to "Anyone with the link"</li>
             <li>Copy the video URL and paste it above</li>
