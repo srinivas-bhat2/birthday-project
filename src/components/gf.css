@@ -1,7 +1,7 @@
 .falling-words-container {
     position: absolute;
     top: 0;
-    left: 65%;  /* Position words in the center horizontally */
+    left: 50%;  /* Position words in the center horizontally */
     transform: translateX(-50%);  /* Ensure the words are centered */
     right: 0;
     height: 100vh; /* Full viewport height */

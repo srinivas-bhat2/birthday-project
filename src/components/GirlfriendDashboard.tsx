@@ -35,18 +35,24 @@ export default function GirlfriendDashboard() {
           <PhotoGallery />
         </div>
 
-        {/* Falling words effect */}
+        {/* Falling words effect with criss-cross motion */}
         <div className="falling-words-container">
           {words.map((word, index) => (
             <motion.div
               key={index}
-              initial={{ y: -100 }}  // Start above the screen
-              animate={{ y: "100vh" }}  // Animate to the bottom of the screen
+              initial={{ 
+                y: -100,  // Start above the screen
+                x: Math.random() * 400 - 30,  // Random horizontal start (-100 to 100px)
+              }}
+              animate={{ 
+                y: "100vh",  // Animate to the bottom of the screen
+                x: Math.random() * 400 - 30,  // Random horizontal end position
+              }}
               transition={{
                 duration: 10 + Math.random(),  // Random duration for variation
-                ease: "easeIn",  // Ease function for smoother animation
+                ease: "easeInOut",  // Use smooth easing for criss-cross motion
                 repeat: Infinity,  // Make the animation repeat
-                delay: index * 0.2,  // Delay each word slightly for a staggered effect
+                delay: index * 0.2,  // Stagger the delay for each word
               }}
               className="falling-word"
             >
