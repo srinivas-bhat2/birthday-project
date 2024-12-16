@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useVideoWishes } from "../../hooks/useVideoWishes";
 import VideoWishCard from "./VideoWishCard";
-import { Loader, StepBack, SkipForward, StepForward } from "lucide-react";
+import { Loader, StepBack, StepForward } from "lucide-react";
 
 export default function VideoWishesSection() {
   const { wishes, loading } = useVideoWishes();
@@ -9,8 +9,15 @@ export default function VideoWishesSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const itemsPerPage = 4;
 
-  // Calculate the end index for the videos to display
-  const visibleWishes = wishes.slice(currentIndex, currentIndex + itemsPerPage);
+  // Prioritize specific names
+  const prioritizedNames = ["puttamma", "sindhu", "ekshu", "uncle", "lexmi", "asfi"];
+
+  const sortedWishes = [
+    ...wishes.filter((wish) => prioritizedNames.includes(wish.name.toLowerCase())),
+    ...wishes.filter((wish) => !prioritizedNames.includes(wish.name.toLowerCase())),
+  ];
+
+  const visibleWishes = sortedWishes.slice(currentIndex, currentIndex + itemsPerPage);
 
   const handlePrev = () => {
     if (currentIndex > 0) {
@@ -19,7 +26,7 @@ export default function VideoWishesSection() {
   };
 
   const handleNext = () => {
-    if (currentIndex + itemsPerPage < wishes.length) {
+    if (currentIndex + itemsPerPage < sortedWishes.length) {
       setCurrentIndex(currentIndex + itemsPerPage);
     }
   };
@@ -32,7 +39,7 @@ export default function VideoWishesSection() {
     );
   }
 
-  if (wishes.length === 0) {
+  if (sortedWishes.length === 0) {
     return (
       <div className="text-center py-12">
         <p className="text-gray-600 font-handwriting text-xl">
@@ -58,13 +65,13 @@ export default function VideoWishesSection() {
           disabled={currentIndex === 0}
           className="bg-gray-800 text-white p-4 text-3xl rounded-full hover:bg-gray-500 disabled:opacity-50"
         >
-       <StepBack />
+          <StepBack />
         </button>
       </div>
       <div className="absolute top-1/2 right-0 transform -translate-y-1/2 z-10">
         <button
           onClick={handleNext}
-          disabled={currentIndex + itemsPerPage >= wishes.length}
+          disabled={currentIndex + itemsPerPage >= sortedWishes.length}
           className="bg-gray-800 text-white p-4 text-3xl rounded-full hover:bg-gray-700 disabled:opacity-50"
         >
           <StepForward />
