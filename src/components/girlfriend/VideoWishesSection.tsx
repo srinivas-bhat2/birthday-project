@@ -56,7 +56,7 @@ export default function VideoWishesSection() {
         <button
           onClick={handlePrev}
           disabled={currentIndex === 0}
-          className="bg-gray-800 text-white p-4 text-3xl rounded-full hover:bg-gray-700 disabled:opacity-50"
+          className="bg-gray-800 text-white p-4 text-3xl rounded-full hover:bg-gray-500 disabled:opacity-50"
         >
        <StepBack />
         </button>
